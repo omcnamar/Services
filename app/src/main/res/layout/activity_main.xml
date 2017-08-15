@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.olegsagenadatrytwo.services.MainActivity">
+
+    <Button
+        android:id="@+id/btnStartNormalService"
+        android:layout_weight="1"
+        android:text="Start Normal Service"
+        android:layout_width="match_parent"
+        android:background="@color/colorGreen"
+        android:onClick="startService"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btnStopNormalService"
+        android:layout_weight="1"
+        android:text="Stop Normal Service"
+        android:layout_width="match_parent"
+        android:background="@color/colorRed"
+        android:onClick="startService"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btnStartIntentService"
+        android:layout_weight="1"
+        android:text="Start Intent Service"
+        android:background="@color/colorGreen"
+        android:layout_width="match_parent"
+        android:onClick="startService"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btnBindService"
+        android:layout_weight="1"
+        android:text="Bind Service"
+        android:background="@color/colorYellow"
+        android:layout_width="match_parent"
+        android:onClick="startService"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btnUnbindService"
+        android:background="@color/colorRed"
+        android:layout_weight="1"
+        android:text="Unbind Service"
+        android:onClick="startService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <EditText
+        android:id="@+id/etNumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Enter Number"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btnGoToSecond"
+        android:background="@color/colorPrimary"
+        android:layout_weight="1"
+        android:text="To to second"
+        android:onClick="startService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btnGoToMusic"
+        android:layout_weight="1"
+        android:text="To to music"
+        android:onClick="startService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
