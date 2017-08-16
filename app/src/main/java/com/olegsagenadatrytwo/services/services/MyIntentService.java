@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 
 
+//creates worker thread on the main thread ... runs on different thread
 public class MyIntentService extends IntentService {
 
     public static final String TAG = "MyIntentService";

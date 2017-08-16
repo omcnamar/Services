@@ -3,20 +3,12 @@ package com.olegsagenadatrytwo.services.services;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.support.annotation.IntDef;
 import android.util.Log;
 
-//runs on the main thread // thread.sleep will sleep main thread
-public class MyNormalService extends Service {
-
-    public static final String TAG = "MyNormalService";
-
-    public MyNormalService() {
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.d(TAG, "onCreate: ");
+public class MyScheduleServices extends Service {
+    public static final String TAG = "MyScheduleServices";
+    public MyScheduleServices() {
     }
 
     @Override
@@ -29,11 +21,5 @@ public class MyNormalService extends Service {
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy: ");
     }
 }

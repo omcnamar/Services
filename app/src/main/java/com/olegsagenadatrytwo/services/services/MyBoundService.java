@@ -2,12 +2,9 @@ package com.olegsagenadatrytwo.services.services;
 
 import android.app.Service;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
-
-import com.olegsagenadatrytwo.services.R;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -18,10 +15,6 @@ public class MyBoundService extends Service {
     private static final String TAG = "MyBoundService";
     public IBinder iBinder = new MyBinder();
     public int passed;
-
-    //music player stuff
-    MediaPlayer player;
-    int pause;
 
     public MyBoundService() {
         Log.d(TAG, "MyBoundService: ");
@@ -68,12 +61,6 @@ public class MyBoundService extends Service {
             list.add(new BigInteger(130, random).toString(32));
         }
         return list;
-    }
-
-    public MediaPlayer playMusic(){
-        player = MediaPlayer.create(this, R.raw.skillet);
-        player.start();
-        return player;
     }
 
 }

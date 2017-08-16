@@ -1,19 +1,23 @@
 package com.olegsagenadatrytwo.services;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.olegsagenadatrytwo.services.services.MyBoundService;
 import com.olegsagenadatrytwo.services.services.MyIntentService;
+import com.olegsagenadatrytwo.services.services.MyJobService;
 import com.olegsagenadatrytwo.services.services.MyNormalService;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void startService(View view) {
         Intent normalIntent = new Intent(this, MyNormalService.class);
         Intent intentService = new Intent(this, MyIntentService.class);
@@ -77,6 +82,26 @@ public class MainActivity extends AppCompatActivity {
                 Intent music = new Intent(this, MusicPlayerActivity.class);
                 startActivity(music);
                 break;
+            case R.id.btnScheduleService:
+
+                Log.d(TAG, "startService: ");
+                ComponentName serviceComponent = new ComponentName(MainActivity.this, MyJobService.class);
+                JobInfo.Builder jobInfo = new JobInfo.Builder(0, serviceComponent);
+
+                jobInfo.setMinimumLatency(1000);
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+                    jobScheduler.schedule(jobInfo.build());
+                    Log.d(TAG, "startService: " + "inside if");
+                }else{
+                    Log.d(TAG, "startService: " +  " outside if");
+                }
+
+                break;
+            case R.id.btnGoToRandomObject:
+                Intent randObj = new Intent(this, RandomObjectsActivityUsingIntentService.class);
+                startActivity(randObj);
+                break;
         }
     }
 
@@ -86,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onServiceConnected: ");
             MyBoundService.MyBinder myBinder = (MyBoundService.MyBinder) iBinder;
             myBoundService = myBinder.getService();
-//            Log.d(TAG, "onServiceConnected: " + myBoundService.getRandomData());
             isConnected = true;
         }
 

@@ -52,6 +52,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <Button
+        android:id="@+id/btnScheduleService"
+        android:layout_weight="1"
+        android:text="Start Schedule Service"
+        android:background="@color/colorGreen"
+        android:onClick="startService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <EditText
         android:id="@+id/etNumber"
         android:layout_width="match_parent"
@@ -72,6 +81,14 @@
         android:id="@+id/btnGoToMusic"
         android:layout_weight="1"
         android:text="To to music"
+        android:onClick="startService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btnGoToRandomObject"
+        android:layout_weight="1"
+        android:text="To to Random Object"
         android:onClick="startService"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

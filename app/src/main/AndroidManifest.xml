@@ -20,7 +20,8 @@
         <service
             android:name=".services.MyNormalService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:process=":NormalService">
         </service>
         <service
             android:name=".services.MyIntentService"
@@ -35,6 +36,31 @@
         <activity android:name=".SecondActivity">
         </activity>
         <activity android:name=".MusicPlayerActivity">
+        </activity>
+
+        <service
+            android:name=".services.MyScheduleServices"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".services.MyJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+        </service>
+        <service
+            android:name=".services.MyMusicService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":musicPlayer">
+        </service>
+        <service
+            android:name=".services.MyIntentServiceForRandomObjects"
+            android:exported="false">
+        </service>
+
+        <activity android:name=".RandomObjectsActivityUsingIntentService">
         </activity>
     </application>
 
